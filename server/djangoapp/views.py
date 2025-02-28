@@ -110,16 +110,13 @@ def get_dealer_reviews(request, dealer_id):
             print(response)
             print(type(response))
 
-            # 1) Check if response is None
             if response is None:
                 print("Warning: sentiment analyzer returned None.")
                 review_detail["sentiment"] = "unknown"
 
-            # 2) Check if it has 'sentiment' key
             elif "sentiment" in response:
                 review_detail["sentiment"] = response["sentiment"]
 
-            # 3) Otherwise fallback to unknown
             else:
                 review_detail["sentiment"] = "unknown"
 
